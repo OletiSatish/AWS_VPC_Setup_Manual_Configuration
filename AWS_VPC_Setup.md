@@ -29,6 +29,8 @@ In this project, we will create:
    - **Tenancy:** Default
 5. Click **Create VPC**.
 
+![Create VPC](images/vpc.png)
+
 ## Step 2: Create an Internet Gateway (IGW)
 1. Go to **VPC Dashboard → Internet Gateways**.
 2. Click **Create Internet Gateway**.
@@ -40,11 +42,14 @@ In this project, we will create:
    - Select **MyCustomVPC**.
    - Click **Attach Internet Gateway**.
 
+![Create IGW](images/igw.png)
+
 ## Step 3: Create Subnets
 We will create two subnets:
 
 - **Public Subnet (10.0.1.0/24)**
 - **Private Subnet (10.0.2.0/24)**
+![Create VPC](images/subnets.png)
 
 ### Create Public Subnet
 1. Navigate to **VPC Dashboard → Subnets**.
@@ -70,6 +75,8 @@ We need two route tables:
 
 - **Public Route Table** (Routes traffic to the Internet)
 - **Private Route Table** (Routes private traffic through NAT Gateway)
+
+![Create VPC](images/routes.png)
 
 ### Create Public Route Table
 1. Navigate to **VPC Dashboard → Route Tables**.
@@ -106,6 +113,9 @@ We need two route tables:
    - **Subnet:** Public-Subnet
    - **Elastic IP:** Click **Allocate Elastic IP → Select the new Elastic IP**.
 4. Click **Create NAT Gateway**.
+
+![Create VPC](images/nat.png)
+
 5. Go to **Route Tables → Select Private-Route-Table**.
 6. Click **Routes → Edit Routes → Add Route**:
    - **Destination:** 0.0.0.0/0
@@ -127,6 +137,7 @@ We need two route tables:
 10. Click **Review and Launch → Launch**.
 11. Select/Create a Key Pair → Click **Launch Instances**.
 
+
 ### Create a Private EC2 Instance
 1. Click **Launch Instance**.
 2. Choose **Amazon Linux 2**.
@@ -145,11 +156,14 @@ We need two route tables:
 ssh -i your-key.pem ec2-user@public-ec2-ip
 ```
 
+![Create VPC](images/public-ec2.png)
+
 ### Connect to Private EC2 via Public EC2
 1. Once inside the **public EC2**, SSH into the private EC2:
 ```sh
 ssh -i your-key.pem ec2-user@private-ec2-ip
 ```
+![Create VPC](images/private-ec2.png)
 
 ## Architecture Diagram
 (Upload a diagram here if available)
@@ -160,4 +174,4 @@ ssh -i your-key.pem ec2-user@private-ec2-ip
 - Enable **monitoring** using **CloudWatch**.
 
 ## Conclusion
-This document explains how to manually create a **VPC, subnets, route tables, NAT, and EC2 instances** in AWS. Upload this to **GitHub** for reference.
+This document explains how to manually create a **VPC, subnets, route tables, NAT, and EC2 instances** in AWS. 

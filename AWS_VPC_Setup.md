@@ -166,7 +166,7 @@ ssh -i your-key.pem ec2-user@private-ec2-ip
 ![Create VPC](images/private-ec2.png)
 
 ## Architecture Diagram
-(Upload a diagram here if available)
+![Create VPC](images/Vpc%20Arch.png)
 
 ## Future Enhancements
 - Automate the setup using **Terraform** or **CloudFormation**.
